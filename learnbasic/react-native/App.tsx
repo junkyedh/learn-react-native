@@ -11,6 +11,7 @@ export default function App() {
       </Text>
       <View style={{ flexDirection: "row", marginTop: 20 }}>
         <Button 
+          color={'red'}
           title='Increase count' 
           onPress={() => setCount(count + 1)}
         />    
