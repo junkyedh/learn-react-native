@@ -1,20 +1,29 @@
 import { useState } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   
-  const [count, setCount] = useState<number>(0);
+  const [name, setName] = useState<string>("");
+  const [age, setAge] = useState<number>(0);
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: 40, fontWeight: '600'}}>
-        Count = {count}
-      </Text>
-      <View style={{ flexDirection: "row", marginTop: 20 }}>
-        <Button 
-          color={'red'}
-          title='Increase count' 
-          onPress={() => setCount(count + 1)}
-        />    
+      <View>
+        <Text style={{fontSize: 60, fontWeight: '400'}}>Name: {name}</Text>
+        <TextInput 
+          multiline
+          style={{height: 60, borderColor: 'gray', borderWidth: 1, padding: 10, width: 200}}
+          onChangeText={(value) => setName(value)}
+        />
+      </View>
+
+      <View>
+        <Text style={{fontSize: 60, fontWeight: '400'}}>Age: {age}</Text>
+        <TextInput
+          keyboardType='numeric'
+          maxLength={2}
+          style={{height: 60, borderColor: 'gray', borderWidth: 1, padding: 10, width: 200}}
+          onChangeText={(value) => setAge(+value)}
+        />
       </View>
     </View>
   );
